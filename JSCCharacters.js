@@ -104,4 +104,4 @@ function fizzBuzz() {
     }
 }
 
-console.log(fizzBuzz());
+// console.log(fizzBuzz());
