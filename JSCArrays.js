@@ -96,4 +96,54 @@ function flattenArray(arrays) {
     return [].concat(...arrays);
 }
 
-console.log(flattenArray([[1, 2],[3, 4],[5, 6],[7]]))
+// console.log(flattenArray([[1, 2],[3, 4],[5, 6],[7]]))
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+// ANAGRAM
+// ex. 'elbow' === 'below'
+// ex. 'Dormitory' === 'dirty room'
+
+function isAnagram(str1, str2) {
+    return formatStr(str1) === formatStr(str2);
+}
+
+function formatStr(str) {
+    return str
+        .replace(/[^\w]/g, '')
+        .toLowerCase()
+        .split('')
+        .sort()
+        .join('')
+}
+
+// console.log(isAnagram('elbow', 'below'))
+// console.log(isAnagram('Dormitory', 'dirty room'))
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+// LETTER CHANGES
+// ex. Change every letter to the one that follows it and cap vowels
+// z to a
+// ex. 'hello there' === 'Ifmmp UIfsf'
+
+function letterChanges(str) {
+    let newStr = str
+        .toLowerCase()
+        .replace(/[a-z]/gi, char => {
+            if(char === 'z' || char === 'Z') {
+                return 'a';
+            } else {
+                return String.fromCharCode(char.charCodeAt() + 1);
+            }
+        }
+    );
+
+    newStr = newStr.replace(/a|e|i|o|u/gi, vowel => vowel.toUpperCase());
+
+    return newStr;
+}
+
+console.log(letterChanges('Hello There'))
